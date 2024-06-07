@@ -1,5 +1,6 @@
 import "./App.css";
 
+// TODO: 계산결과를 redux를 이용한 전역상태로 관리해 보세요.
 function App() {
   return (
     <div className="App">
