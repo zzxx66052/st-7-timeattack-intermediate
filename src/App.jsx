@@ -1,18 +1,23 @@
+import { useState } from "react";
 import "./App.css";
+import TodoForm from "./components/TodoForm";
+import TodoListWrapper from "./components/TodoListWrapper";
 
-// TODO: 계산결과를 redux를 이용한 전역상태로 관리해 보세요.
 function App() {
+  // TODO: useState 로 되어 있는 부분을 redux 전역상태관리로 리팩터링 해보세요.
+  // initialState 에 있는 더미 데이터는 제거하셔도 좋습니다.
+  const [todos, setTodos] = useState([
+    { id: 1, title: "제목1", content: "내용1", isDone: false },
+    { id: 2, title: "제목2", content: "내용2", isDone: false },
+    { id: 3, title: "제목3", content: "내용3", isDone: true },
+    { id: 4, title: "제목4", content: "내용4", isDone: true },
+    { id: 5, title: "제목5", content: "내용5", isDone: true },
+  ]);
   return (
     <div className="App">
-      <h1>덧셈과 뺄셈이 가능한 앱 만들기</h1>
-      <div>
-        <input /> 만큼을 <button>더할게요</button> <button>뺄게요</button>
-      </div>
-      <hr />
-      <div>
-        <h3>결과</h3>
-        <p>0</p>
-      </div>
+      <h1>투두리스트 타임어택</h1>
+      <TodoForm setTodos={setTodos} />
+      <TodoListWrapper todos={todos} setTodos={setTodos} />
     </div>
   );
 }
