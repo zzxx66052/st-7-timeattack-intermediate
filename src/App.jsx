@@ -1,5 +1,5 @@
 import "./App.css";
-
+import { decrement, increment } from "./redux/slices/calculatorSlice";
 // TODO:
 // 1. 계산결과를 redux를 이용한 전역상태로 관리해 보세요.
 // 2. useRef 를 사용해서 input value 에 접근할 수 있게 해서 비제어 컴포넌트로 처리해 보세요.
@@ -11,7 +11,8 @@ function App() {
     <div className="App">
       <h1>덧셈과 뺄셈이 가능한 앱 만들기</h1>
       <div>
-        <input /> 만큼을 <button>더할게요</button> <button>뺄게요</button>
+        <input /> 만큼을 <button onClick={increment}>더할게요</button>{" "}
+        <button onClick={decrement}>뺄게요</button>
       </div>
       <hr />
       <div>
